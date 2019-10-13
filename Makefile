@@ -3,7 +3,7 @@ SHELL=/bin/bash
 .PHONY: run
 
 run: venv
-	./sensors
+	python3 sensors
 
 test:
 	pytest --cov=. --cov-report=html
@@ -13,6 +13,7 @@ developement:
 	( \
 	source venv/bin/activate; \
 	pip3 install -r requirements/development.txt; \
+	pip3 install . -e; \
 	)
 
 venv:
@@ -20,6 +21,7 @@ venv:
 	( \
 	source venv/bin/activate; \
 	pip3 install -r requirements/base.txt; \
+	pip3 install -e
 	)
 
 clean:
