@@ -12,16 +12,15 @@ developement:
 	python3 -m venv venv
 	( \
 	source venv/bin/activate; \
+	pip3 install -e .; \
 	pip3 install -r requirements/development.txt; \
-	pip3 install . -e; \
 	)
 
 venv:
 	python3 -m venv venv
 	( \
 	source venv/bin/activate; \
-	pip3 install -r requirements/base.txt; \
-	pip3 install -e
+	pip3 install .; \
 	)
 
 clean:
