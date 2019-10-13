@@ -5,22 +5,29 @@ SHELL=/bin/bash
 run: venv
 	python3 sensors
 
-test:
-	pytest --cov=. --cov-report=html
+test: venv/development
+	pytest --cov=. --cov-report=term
 
-developement:
-	python3 -m venv venv
+venv/development:
+	test -d venv || python3 -m venv venv
 	( \
 	source venv/bin/activate; \
 	pip3 install -e .; \
 	pip3 install -r requirements/development.txt; \
 	)
+	touch venv/development
 
 venv:
-	python3 -m venv venv
+	test -d venv || python3 -m venv venv
 	( \
 	source venv/bin/activate; \
 	pip3 install .; \
+	)
+
+venv/bin/activate: venv
+	( \
+	source venv/bin/activate; \
+	touch venv/bin/activate; \
 	)
 
 clean:
