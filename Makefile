@@ -6,7 +6,10 @@ run: venv
 	python3 sensors
 
 test: venv/development
-	pytest --nomigrations --cov=. --cov-report=term sensors/
+	( \
+	source venv/bin/activate; \
+	pytest --nomigrations --cov=. --cov-report=term sensors/; \
+	)
 
 venv/development:
 	test -d venv || python3 -m venv venv
