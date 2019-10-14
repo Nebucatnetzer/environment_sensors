@@ -6,13 +6,12 @@ run: venv
 	python3 sensors
 
 test: venv/development
-	pytest --cov=. --cov-report=term
+	pytest --cov=. --cov-report=term sensors/
 
 venv/development:
 	test -d venv || python3 -m venv venv
 	( \
 	source venv/bin/activate; \
-	pip3 install -e .; \
 	pip3 install -r requirements/development.txt; \
 	)
 	touch venv/development
@@ -21,7 +20,7 @@ venv:
 	test -d venv || python3 -m venv venv
 	( \
 	source venv/bin/activate; \
-	pip3 install .; \
+	pip3 install -r requirements/base.txt; \
 	)
 
 venv/bin/activate: venv

@@ -2,6 +2,7 @@
 
 pytest
 pytest-cov
+pytest-django
 pep8
 rope
 pylint

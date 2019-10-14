@@ -1,21 +1,21 @@
 from django.db import models
 
-# Create your models here.
+
 class Time(models.Model):
-    value = DateTimeField()
+    value = models.DateTimeField()
 
 
 class Temperatur(models.Model):
-    time = ForeignKeyField(Time, backref='temperatures')
-    value = FloatField()
+    time = models.ForeignKey(Time, on_delete=models.CASCADE)
+    value = models.FloatField()
 
 
 class Humidity(models.Model):
-    time = ForeignKeyField(Time, backref='humidities')
-    value = FloatField()
+    time = models.ForeignKey(Time, on_delete=models.CASCADE)
+    value = models.FloatField()
 
 
 class Pressure(models.Model):
-    time = ForeignKeyField(Time, backref='pressures')
-    value = FloatField()
+    time = models.ForeignKey(Time, on_delete=models.CASCADE)
+    value = models.FloatField()
 
