@@ -5,7 +5,7 @@ class Time(models.Model):
     value = models.DateTimeField()
 
 
-class Temperatur(models.Model):
+class Temperature(models.Model):
     time = models.ForeignKey(Time, on_delete=models.CASCADE)
     value = models.FloatField()
 
