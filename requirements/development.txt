@@ -6,3 +6,4 @@ pytest-django
 pep8
 rope
 pylint
+mixer
