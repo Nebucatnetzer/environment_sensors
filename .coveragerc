@@ -1,7 +1,11 @@
 [run]
 omit =
-     *tests/*,
-     *__init__.py,
-     *venv/*,
-     setup.py,
-     *__main__.py,
+    *apps.py,
+    *migrations/*,
+    *settings*,
+    *tests/*,
+    *urls.py,
+    *wsgi.py,
+    *__init__.py,
+    manage.py,
+    *venv/*,
