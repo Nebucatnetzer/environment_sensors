@@ -6,7 +6,7 @@ run: venv
 	python3 sensors
 
 test: venv/development
-	pytest --cov=. --cov-report=term sensors/
+	pytest --nomigrations --cov=. --cov-report=term sensors/
 
 venv/development:
 	test -d venv || python3 -m venv venv
