@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <title>Environment Sensors</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="ui container">
+  <h1>{% block section_title %}Environment Sensors{% endblock %}</h1>
+  <h2>Temperature</h2>
+  {% autoescape off %}
+  {{ plot_temp }}
+  {% endautoescape %}
+  <h2>Humidity</h2>
+  {% autoescape off %}
+  {{ plot_humidity}}
+  {% endautoescape %}
+  <h2>Pressure</h2>
+  {% autoescape off %}
+  {{ plot_pressure }}
+  {% endautoescape %}
+  <footer>
+    {% block footer %}
+    <p class="copyright">Created by Andreas Zweili licensed under GPL v3.0</p>
+    {% endblock %}
+  </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</body>
+</html>
