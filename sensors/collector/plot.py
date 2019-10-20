@@ -8,7 +8,6 @@ def temperature():
     x_axis = []
     y_axis = []
     for point in data:
-        print(point.value)
         x_axis.append(point.value)
         y_axis.append(point.time.value)
 
