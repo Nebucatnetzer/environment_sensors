@@ -7,7 +7,7 @@ run: venv
 	export DJANGO_SETTINGS_MODULE=sensors.settings.production; \
 	./sensors/manage.py makemigrations; \
 	./sensors/manage.py migrate; \
-	./sensors/manage.py runserver; \
+	./sensors/manage.py runserver 0:8000; \
 	)
 
 test: venv/development
