@@ -8,8 +8,8 @@ def temperature():
     x_axis = []
     y_axis = []
     for point in data:
-        x_axis.append(point.value)
-        y_axis.append(point.time.value)
+        y_axis.append(point.value)
+        x_axis.append(point.time.value)
 
     plot_div = plot([Scatter(x=x_axis , y=y_axis,
                              mode='lines', name='temperature',
@@ -23,8 +23,8 @@ def humidity():
     x_axis = []
     y_axis = []
     for point in data:
-        x_axis.append(point.value)
-        y_axis.append(point.time.value)
+        y_axis.append(point.value)
+        x_axis.append(point.time.value)
 
     plot_div = plot([Scatter(x=x_axis , y=y_axis,
                              mode='lines', name='humidity',
@@ -38,8 +38,8 @@ def pressure():
     x_axis = []
     y_axis = []
     for point in data:
-        x_axis.append(point.value)
-        y_axis.append(point.time.value)
+        y_axis.append(point.value)
+        x_axis.append(point.time.value)
 
     plot_div = plot([Scatter(x=x_axis , y=y_axis,
                              mode='lines', name='pressure',
