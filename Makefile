@@ -12,7 +12,7 @@ test: venv/development
 	)
 
 venv/development:
-	test -d venv || python3 -m venv venv
+	test -d venv || python3 -m venv venv --system-site-packages
 	( \
 	source venv/bin/activate; \
 	pip3 install -r requirements/development.txt; \
@@ -20,7 +20,7 @@ venv/development:
 	touch venv/development
 
 venv:
-	test -d venv || python3 -m venv venv
+	test -d venv || python3 -m venv venv --system-site-packages
 	( \
 	source venv/bin/activate; \
 	pip3 install -r requirements/base.txt; \
