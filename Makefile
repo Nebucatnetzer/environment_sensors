@@ -13,7 +13,8 @@ run: venv
 test: venv/development
 	( \
 	source venv/bin/activate; \
-	pytest --nomigrations --cov=. --cov-report=term sensors/; \
+	export DJANGO_SETTINGS_MODULE=sensors.settings.development; \
+	pytest --nomigrations --cov=. --cov-report=html sensors/; \
 	)
 
 venv/development:
