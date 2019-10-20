@@ -1,4 +1,4 @@
 django
-sense_hat
 django-background-tasks
 plotly
+sense_hat
