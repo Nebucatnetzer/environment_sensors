@@ -7,3 +7,4 @@ pep8
 rope
 pylint
 mixer
+sense_emu
