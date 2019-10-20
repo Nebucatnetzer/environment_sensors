@@ -7,18 +7,10 @@ else:
 
 sense = SenseHat()
 
-def _get_cpu_temperature():
-    res = os.popen('vcgencmd measure_temp').readline()
-    return float(res.replace('temp=', '').replace("'C\n", ''))
 
 def get_temperature():
-    humidity_temp = self._sense_hat.get_temperature_from_humidity()
-    pressure_temp = self._sense_hat.get_temperature_from_pressure()
-    cpu_temp = _get_cpu_temperature()
-    avg_temp = ((humidity_temp + pressure_temp)
-                / 2 if pressure_temp else humidity_temp)
-    adj_temp = avg_temp - (cpu_temp - avg_temp) / 0.69
-    return adj_temp
+    raw_temp = sense.get_temperature()
+    return round(raw_temp, 1)
 
 
 def get_pressure():
