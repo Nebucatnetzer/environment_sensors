@@ -3,7 +3,12 @@ SHELL=/bin/bash
 .PHONY: run
 
 run: venv
-	python3 sensors
+	( \
+	export DJANGO_SETTINGS_MODULE=sensors.settings.production; \
+	./sensors/manage.py makemigrations; \
+	./sensors/manage.py migrate; \
+	./sensors/manage.py runserver; \
+	)
 
 test: venv/development
 	( \
