@@ -1,6 +1,5 @@
 from plotly.offline import plot
 from plotly.graph_objs import Scatter
-import plotly.express as px
 from collector.models import Time, Temperature, Humidity, Pressure
 
 
