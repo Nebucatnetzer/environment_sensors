@@ -4,7 +4,7 @@ from collector.models import Time, Temperature, Humidity, Pressure
 
 
 def temperature():
-    data = Temperature.objects.all()[:30]
+    data = Temperature.objects.all()[30:]
     x_axis = []
     y_axis = []
     for point in data:
@@ -19,7 +19,7 @@ def temperature():
 
 
 def humidity():
-    data = Humidity.objects.all()[:30]
+    data = Humidity.objects.all()[30:]
     x_axis = []
     y_axis = []
     for point in data:
@@ -34,7 +34,7 @@ def humidity():
 
 
 def pressure():
-    data = Pressure.objects.all()[:30]
+    data = Pressure.objects.all()[30:]
     x_axis = []
     y_axis = []
     for point in data:
