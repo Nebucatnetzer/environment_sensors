@@ -1,10 +1,10 @@
 -r base.txt
 
+mixer
+pep8
+pylint
 pytest
 pytest-cov
 pytest-django
-pep8
 rope
-pylint
-mixer
 sense_emu
