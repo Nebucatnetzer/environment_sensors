@@ -19,4 +19,5 @@ def get_pressure():
 
 
 def get_humidity():
-    return sense.get_humidity()
+    raw_humidity = sense.get_humidity()
+    return round(raw_humidity, 1)
