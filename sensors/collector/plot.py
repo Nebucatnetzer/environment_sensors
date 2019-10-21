@@ -1,6 +1,6 @@
 from plotly.offline import plot
 from plotly.graph_objs import Scatter
-from collector.models import Time, Temperature, Humidity, Pressure
+from collector.models import Temperature, Humidity, Pressure
 
 
 def temperature():
@@ -9,7 +9,7 @@ def temperature():
     y_axis = []
     for point in data:
         y_axis.append(point.value)
-        x_axis.append(point.time.value)
+        x_axis.append(point.time)
 
     plot_div = plot([Scatter(x=x_axis , y=y_axis,
                              mode='lines', name='temperature',
@@ -24,7 +24,7 @@ def humidity():
     y_axis = []
     for point in data:
         y_axis.append(point.value)
-        x_axis.append(point.time.value)
+        x_axis.append(point.time)
 
     plot_div = plot([Scatter(x=x_axis , y=y_axis,
                              mode='lines', name='humidity',
@@ -39,7 +39,7 @@ def pressure():
     y_axis = []
     for point in data:
         y_axis.append(point.value)
-        x_axis.append(point.time.value)
+        x_axis.append(point.time)
 
     plot_div = plot([Scatter(x=x_axis , y=y_axis,
                              mode='lines', name='pressure',

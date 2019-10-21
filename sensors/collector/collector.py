@@ -6,7 +6,7 @@ if os.uname()[4].startswith("arm"):
 else:
     from sense_emu import SenseHat
 
-from .models import Time, Temperature, Humidity, Pressure
+from .models import Temperature, Humidity, Pressure
 
 sense = SenseHat()
 
@@ -27,7 +27,7 @@ def get_humidity():
 
 
 def values_to_db():
-    time = Time.objects.create(value=timezone.now())
+    time = timezone.now()
     Temperature.objects.create(value=get_temperature(), time=time)
     Humidity.objects.create(value=get_humidity(), time=time)
     Pressure.objects.create(value=get_pressure(), time=time)
