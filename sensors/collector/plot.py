@@ -1,10 +1,14 @@
+from datetime import timedelta
+from django.utils import timezone
 from plotly.offline import plot
 from plotly.graph_objs import Scatter
 from collector.models import Temperature, Humidity, Pressure
 
 
+start_time = timezone.now() - timedelta(hours=12)
+
 def temperature():
-    data = Temperature.objects.all()[30:]
+    data = Temperature.objects.filter(time__gt=start_time)
     x_axis = []
     y_axis = []
     for point in data:
@@ -19,7 +23,7 @@ def temperature():
 
 
 def humidity():
-    data = Humidity.objects.all()[30:]
+    data = Humidity.objects.filter(time__gt=start_time)
     x_axis = []
     y_axis = []
     for point in data:
@@ -34,7 +38,7 @@ def humidity():
 
 
 def pressure():
-    data = Pressure.objects.all()[30:]
+    data = Pressure.objects.filter(time__gt=start_time)
     x_axis = []
     y_axis = []
     for point in data:
