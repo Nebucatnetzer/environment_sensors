@@ -13,8 +13,7 @@ def temperature():
 
     plot_div = plot([Scatter(x=x_axis , y=y_axis,
                              mode='lines', name='temperature',
-                             opacity=0.8, marker_color='green',
-                             line_shape='spline')],
+                             opacity=0.8, marker_color='green')],
                     output_type='div')
     return plot_div
 
@@ -29,8 +28,7 @@ def humidity():
 
     plot_div = plot([Scatter(x=x_axis , y=y_axis,
                              mode='lines', name='humidity',
-                             opacity=0.8, marker_color='green',
-                             line_shape='spline')],
+                             opacity=0.8, marker_color='green')],
                     output_type='div')
     return plot_div
 
@@ -45,7 +43,6 @@ def pressure():
 
     plot_div = plot([Scatter(x=x_axis , y=y_axis,
                              mode='lines', name='pressure',
-                             opacity=0.8, marker_color='green',
-                             line_shape='spline')],
+                             opacity=0.8, marker_color='green')],
                     output_type='div')
     return plot_div
