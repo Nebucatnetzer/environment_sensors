@@ -1,5 +1,5 @@
 import os
-from django.utils import timezone
+from datetime import datetime
 
 if os.uname()[4].startswith("arm"):
     from sense_hat import SenseHat
@@ -27,7 +27,7 @@ def get_humidity():
 
 
 def values_to_db():
-    time = timezone.now()
+    time = datetime.now()
     Temperature.objects.create(value=get_temperature(), time=time)
     Humidity.objects.create(value=get_humidity(), time=time)
     Pressure.objects.create(value=get_pressure(), time=time)

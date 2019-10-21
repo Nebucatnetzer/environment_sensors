@@ -1,11 +1,11 @@
 from datetime import timedelta
-from django.utils import timezone
+from datetime import datetime
 from plotly.offline import plot
 from plotly.graph_objs import Scatter
 from collector.models import Temperature, Humidity, Pressure
 
 
-start_time = timezone.now() - timedelta(hours=12)
+start_time = datetime.now() - timedelta(hours=12)
 
 def temperature():
     data = Temperature.objects.filter(time__gt=start_time)
