@@ -10,20 +10,20 @@ from .models import Time, Temperature, Humidity, Pressure
 
 sense = SenseHat()
 
+def _round_to_half(value):
+    return round(value * 2.0) / 2.0
+
 
 def get_temperature():
-    raw_temp = sense.get_temperature()
-    return round(raw_temp, 1)
+    return _round_to_half(sense.get_temperature())
 
 
 def get_pressure():
-    raw_pressure = sense.get_pressure()
-    return round(raw_pressure, 1)
+    return round(sense.get_pressure())
 
 
 def get_humidity():
-    raw_humidity = sense.get_humidity()
-    return round(raw_humidity, 1)
+    return round(sense.get_humidity())
 
 
 def values_to_db():
