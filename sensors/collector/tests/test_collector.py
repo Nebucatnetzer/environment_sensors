@@ -1,4 +1,3 @@
-import datetime
 import pytest
 
 from collector import collector
