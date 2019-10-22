@@ -2,8 +2,9 @@ SHELL=/bin/bash
 
 .PHONY: run
 
-run: venv
+run: venv/production
 	( \
+	source venv/bin/activate; \
 	export DJANGO_SETTINGS_MODULE=sensors.settings.production; \
 	./sensors/manage.py makemigrations; \
 	./sensors/manage.py migrate; \
@@ -25,17 +26,12 @@ venv/development:
 	)
 	touch venv/development
 
-venv:
+venv/production:
 	test -d venv || python3 -m venv venv --system-site-packages
 	( \
 	source venv/bin/activate; \
-	pip3 install -r requirements/base.txt; \
-	)
-
-venv/bin/activate: venv
-	( \
-	source venv/bin/activate; \
-	touch venv/bin/activate; \
+	pip3 install -Ur requirements/production.txt; \
+	touch venv/bin/activate: \
 	)
 
 clean:
