@@ -11,7 +11,7 @@ def test_temp_collector(monkeypatch):
         return 25.345
 
     monkeypatch.setattr(collector.sense, 'get_temperature', mock_temp)
-    assert collector.get_temperature() == 25.3
+    assert collector.get_temperature() == 25.5
 
 
 def test_humidity_collector(monkeypatch):
@@ -19,7 +19,7 @@ def test_humidity_collector(monkeypatch):
         return 45.2356
 
     monkeypatch.setattr(collector.sense, 'get_humidity', mock_humidity)
-    assert collector.get_humidity() == 45.2
+    assert collector.get_humidity() == 45
 
 
 def test_pressure_collector(monkeypatch):
@@ -27,7 +27,7 @@ def test_pressure_collector(monkeypatch):
         return 1013.345
 
     monkeypatch.setattr(collector.sense, 'get_pressure', mock_pressure)
-    assert collector.get_pressure() == 1013.3
+    assert collector.get_pressure() == 1013
 
 
 def test_values_to_db(monkeypatch):
@@ -49,6 +49,6 @@ def test_values_to_db(monkeypatch):
     temp = Temperature.objects.get(pk=1)
     humidity = Humidity.objects.get(pk=1)
     pressure = Pressure.objects.get(pk=1)
-    assert (temp.value == 25.3
-            and humidity.value == 45.2
-            and pressure.value == 1013.3)
+    assert (temp.value == 25.5
+            and humidity.value == 45
+            and pressure.value == 1013)
