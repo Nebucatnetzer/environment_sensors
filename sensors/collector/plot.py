@@ -1,13 +1,9 @@
-from datetime import timedelta
-from datetime import datetime
 from plotly.offline import plot
 from plotly.graph_objs import Scatter
 from collector.models import Temperature, Humidity, Pressure
 
 
-start_time = datetime.now() - timedelta(hours=12)
-
-def temperature():
+def temperature(start_time):
     data = Temperature.objects.filter(time__gt=start_time)
     x_axis = []
     y_axis = []
@@ -22,7 +18,7 @@ def temperature():
     return plot_div
 
 
-def humidity():
+def humidity(start_time):
     data = Humidity.objects.filter(time__gt=start_time)
     x_axis = []
     y_axis = []
@@ -37,7 +33,7 @@ def humidity():
     return plot_div
 
 
-def pressure():
+def pressure(start_time):
     data = Pressure.objects.filter(time__gt=start_time)
     x_axis = []
     y_axis = []
