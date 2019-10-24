@@ -1,5 +1,5 @@
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 
 if os.uname()[4].startswith("arm"):
     from sense_hat import SenseHat
@@ -31,3 +31,10 @@ def values_to_db():
     Temperature.objects.create(value=get_temperature(), time=time)
     Humidity.objects.create(value=get_humidity(), time=time)
     Pressure.objects.create(value=get_pressure(), time=time)
+
+
+def clean_db():
+    time = datetime.now() - timedelta(days=30)
+    Temperature.objects.filter(time__lt=time).delete()
+    Humidity.objects.filter(time__lt=time).delete()
+    Pressure.objects.filter(time__lt=time).delete()

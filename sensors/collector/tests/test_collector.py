@@ -1,4 +1,6 @@
+from datetime import datetime, timedelta
 import pytest
+from mixer.backend.django import mixer
 
 from collector import collector
 from collector.models import Temperature, Humidity, Pressure
@@ -52,3 +54,28 @@ def test_values_to_db(monkeypatch):
     assert (temp.value == 25.5
             and humidity.value == 45
             and pressure.value == 1013)
+
+
+def test_clean_db_remove_values():
+    old_time = datetime.now() - timedelta(days=30)
+    mixer.blend('collector.Temperature', time=old_time)
+    mixer.blend('collector.Pressure', time=old_time)
+    mixer.blend('collector.Humidity', time=old_time)
+    collector.clean_db()
+    temp = Temperature.objects.all()
+    pressure = Pressure.objects.all()
+    humidity = Humidity.objects.all()
+    assert not temp.exists() and not pressure.exists() and not humidity.exists()
+
+
+def test_clean_db_dont_remove_values():
+    old_time = datetime.now() - timedelta(days=29)
+    mixer.blend('collector.Temperature', time=old_time)
+    mixer.blend('collector.Pressure', time=old_time)
+    mixer.blend('collector.Humidity', time=old_time)
+    collector.clean_db()
+    temp = Temperature.objects.all()
+    pressure = Pressure.objects.all()
+    humidity = Humidity.objects.all()
+    assert temp.exists() and pressure.exists() and humidity.exists()
+
