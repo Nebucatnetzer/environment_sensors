@@ -8,7 +8,20 @@
 </head>
 <body>
   <div class="ui container">
-  <h1>{% block section_title %}Environment Sensors{% endblock %}</h1>
+      <div class="ui menu">
+          <div class="header item">
+              <a href="{% url 'index' %}">Home</a>
+          </div>
+          <div class="item">
+          <a href="{% url 'history' '72' %}">3 Days</a>
+          </div>
+          <div class="item">
+          <a href="{% url 'history' '168' %}">1 Week</a>
+          </div>
+          <div class="item">
+          <a href="{% url 'history' '720' %}">1 Month</a>
+          </div>
+      </div>
   <h2>Temperature</h2>
   {% autoescape off %}
   {{ plot_temp }}

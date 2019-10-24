@@ -12,3 +12,8 @@ def test_index_temperature():
     response = Client().get('/')
     assert response.status_code == 200
 
+
+def test_history_view():
+    response = Client().get('/history/36')
+    assert response.status_code == 200
+
