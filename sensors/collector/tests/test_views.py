@@ -8,7 +8,7 @@ from .helper import in_content, not_in_content
 pytestmark=pytest.mark.django_db
 
 
-def test_index_temperature():
+def test_index_view():
     response = Client().get('/')
     assert response.status_code == 200
 
