@@ -15,7 +15,7 @@ def _round_to_half(value):
 
 
 def get_temperature():
-    return _round_to_half(sense.get_temperature())
+    return _round_to_half(0.899338368784139 * sense.get_temperature())
 
 
 def get_pressure():
