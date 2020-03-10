@@ -5,5 +5,5 @@ while :
 do
     ./manage.py collect
     ./manage.py clean
-    sleep 600
+    sleep 300
 done
