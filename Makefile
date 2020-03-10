@@ -11,8 +11,14 @@ run: venv/production
 test: venv/development
 	( \
 	source venv/bin/activate; \
-	export DJANGO_SETTINGS_MODULE=sensors.settings.development; \
+	export DJANGO_SETTINGS_MODULE=sensors.settings.production; \
 	pytest --nomigrations --cov=. --cov-report=html sensors/; \
+	)
+
+migrations:
+	( \
+	export DJANGO_SETTINGS_MODULE=sensors.settings.development; \
+	./manage.py makemigrations collector; \
 	)
 
 venv/development:
