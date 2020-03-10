@@ -1,7 +1,7 @@
 from .base import *
 
 ALLOWED_HOSTS = [
-    'sensors.2li.ch',
+    'sensors.2li.local',
     '10.7.89.122',
 ]
 
