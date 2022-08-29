@@ -1,10 +1,13 @@
--r base.txt
-
+django-background-tasks
+django==2.2.13
+gunicorn
 mixer
 pep8
+plotly
 pylint
 pytest
 pytest-cov
 pytest-django
 rope
 sense_emu
+sense_hat

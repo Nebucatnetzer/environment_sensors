@@ -1,4 +1,0 @@
-django==2.2.13
-django-background-tasks
-plotly
-sense_hat
