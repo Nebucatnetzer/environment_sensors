@@ -1,5 +1,5 @@
 django-background-tasks
-django==2.2.13
+django
 gunicorn
 mixer
 pep8
