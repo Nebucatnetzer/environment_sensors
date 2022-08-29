@@ -10,7 +10,7 @@ run: venv
 test: venv
 	( \
 	export DJANGO_SETTINGS_MODULE=sensors.settings.production; \
-	pytest --nomigrations --cov=. --cov-report=html sensors/; \
+	pytest --nomigrations --cov=. --cov-report=html collector/; \
 	)
 
 migrations:
